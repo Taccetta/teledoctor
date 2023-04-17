@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "847807334232",
+    "project_id": "teledoctor-base",
+    "storage_bucket": "teledoctor-base.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847807334232:android:e2f6d0f40e608778b0472d",
+        "android_client_info": {
+          "package_name": "com.taccetta.teledoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847807334232-ffiohb2if0m3l3r02iko7at8tulbel6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5raN2w8wrNcA25JkE09KbaRODoiKXkdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847807334232-ffiohb2if0m3l3r02iko7at8tulbel6t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "847807334232-7ci065u25ejgk4leup4mkh7uthv4mu6r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.taccetta.teledoctor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
