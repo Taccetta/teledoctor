@@ -6,7 +6,7 @@ import 'firebase_options.dart';
 
 //Pages
 import 'package:teledoctor/pages/add_medic.dart';
-import 'package:teledoctor/pages/home_page.dart';
+import 'package:teledoctor/widget_tree.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Mobile Teledoctor',
       initialRoute: '/',
       routes: {
-        '/': (context) => const Home(),
+        '/': (context) => const WidgetTree(),
         '/add': (context) => const AddMedic(),
       },
     );

@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:teledoctor/services/firebase_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:teledoctor/auth.dart';
 
-class Home extends StatefulWidget {
-  const Home({
-    Key? key,
-  }) : super(key: key);
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
 
-  @override
-  State<Home> createState() => _HomeState();
-}
+  final User? user = Auth().currentUser;
 
-class _HomeState extends State<Home> {
+  Future<void> signOut() async {
+    await Auth().signOut();
+  }
+
+  Widget _title() {
+    return const Text('Firebase Auth');
+  }
+
+  Widget _userUid() {
+    return Text(user?.email ?? 'User Email');
+  }
+
+  Widget _signOutButton() {
+    return ElevatedButton(
+      onPressed: signOut,
+      child: const Text('Sign Out'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Material App'),
+        title: _title(),
       ),
-      body: FutureBuilder(
-        future: getMedics(),
-        builder: ((context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data?.length,
-              itemBuilder: (context, index) {
-                return Text(snapshot.data?[index]['name']);
-              },
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        }),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(
-            context,
-            '/add',
-          );
-        },
-        child: const Icon(Icons.add),
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _userUid(),
+            _signOutButton(),
+          ],
+        ),
       ),
     );
   }
